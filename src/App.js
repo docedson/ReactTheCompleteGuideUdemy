@@ -8,11 +8,23 @@ class App extends Component {
       { name: 'Max', age: 28 },
       { name: 'Manu', age: 29 },
       { name: 'Stephanie', age: 26 }
-    ]
+    ],
+    // otherState will not be mutated by setState below as it is outside of
+    // state, however iw can be added to it
+    otherState: 'some other value'
   }
 
   switchNameHandler= () => {
-    console.log('Was clicked!');
+    // console.log('Was clicked!');
+    // DON'T DO THIS, js will not recognize it: this.state.persons[0].name = "Maximilian';"
+    // setState is a special Component method to mutate the state property, and
+    // merge to existing state. Below will only update persons in state above
+    this.setState({
+      persons: [
+        { name: 'Maximillian', age: 28 },
+        { name: 'Manu', age: 29 },
+        { name: 'Stephanie', age: 27 }
+      ]})
   }
 
   render() {
