@@ -16,6 +16,8 @@ const App = props => {
   console.log(personsState, otherState);
 
   const switchNameHandler = () => {
+    // console.log('Was clicked!');
+    // DON'T DO THIS: this.state.persons[0].name = 'Maximilian';
     setPersonsState({
       persons: [
         { name: 'Maximillian', age: 28 },
